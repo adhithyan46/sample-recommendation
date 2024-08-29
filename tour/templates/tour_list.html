@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div>
+        <h1>Available Locations</h1>
+        {% if tours %}
+            <ul>
+                {% for tour in tours %}
+                    <li>
+                        <h2>{{tour.Name}}</h2>
+                        <p><strong>Locations:</strong>{{tour.Location}}</p>
+                        <p><strong>Price:</strong>{{tour.Budget}}</p>
+                        <p><strong>Description:</strong>{{tour.Description}}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No Location Available</p>
+        {% endif %}
+        </div>
+    </body>
+</html>

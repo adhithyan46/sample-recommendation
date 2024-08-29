@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    .search-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+    
+    .search-form input[type="text"] {
+        margin-right: 10px;
+        padding: 5px;
+    }
+    
+    .search-form button {
+        padding: 5px 10px;
+    }
+    
+    .tour-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .tour-list li {
+        width: 80%;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tour-list h2 {
+        margin-bottom: 10px;
+    }
+    
+    .tour-list p {
+        margin: 5px 0;
+    }
+    
+    .no-tours {
+        text-align: center;
+        font-size: 18px;
+        color: #555;
+        margin-top: 20px;
+    }
+</style>
+    
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center;">Tour Recommendation</h1>
+
+        <form method="get" action="{% url 'tour_recommendation' %}" class="search-form">
+            <input type="text" name="search" placeholder="Search by Location">
+            <button type="submit">Search</button>
+        </form>
+        
+        {% if tours %}
+            <ul class="tour-list">
+                {% for tour in tours %}
+                    <li>
+                        <img src="{{tour.img.url}}" alt="{{ tour.Name }}">
+                        <div>
+                        <h2>{{ tour.Name }}</h2>
+                        <p><strong>Locations:</strong> {{ tour.Location }}</p>
+                        <p><strong>Price:</strong> {{ tour.Price }}</p>
+                        <p><strong>Description:</strong> {{ tour.Description }}</p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-tours">No Locations Available</p>
+        {% endif %}
+    </div>
+</body>
+</html>
