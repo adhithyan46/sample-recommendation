@@ -7,20 +7,22 @@ class Tour(models.Model):
     name = models.CharField(max_length=100)
     locations = models.CharField(max_length=100)
     price = models.FloatField()
-    description=models.FloatField()
-    ImageURL = models.URLField()
+    description = models.TextField() 
+    # image_url = models.URLField()  
+    image = models.ImageField(upload_to='tours/',default='')
 
     def __str__(self):
-     return self.name
+        return self.name
 
-class Userprofile(models.Model):
+
+class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     preferred_loc = models.CharField(max_length=100)
     budget = models.FloatField()
-    ImageURL = models.URLField()
-    
+    image_url = models.URLField(blank=True, null=True)  # Optional
+
     def __str__(self):
-        return self.name
-    
+        return self.user.username  # Return username instead of name
+
     
     
