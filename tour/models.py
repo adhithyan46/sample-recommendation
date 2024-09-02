@@ -4,10 +4,10 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Tour(models.Model):
-    name = models.CharField(max_length=100)
-    locations = models.CharField(max_length=100)
-    price = models.FloatField()
-    description = models.TextField() 
+    city = models.CharField(max_length=100)
+    place = models.CharField(max_length=100)
+    rating = models.FloatField()
+    type = models.TextField() 
     # image_url = models.URLField()  
     image = models.ImageField(upload_to='tours/',default='')
 

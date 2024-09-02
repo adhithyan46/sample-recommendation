@@ -5,6 +5,8 @@ def tour_recommend(user_profile, all_tour):
     # Convert user interests into a single string
     user_interests = ' '.join(user_profile['interests'])
     
+    all_tour['Description'] = all_tour['type'].astype(str) + ' ' + all_tour['place'].astype(str)
+    
     # Include the user interests in the dataset for TF-IDF calculation
     all_tour_with_profile = all_tour.copy()
     all_tour_with_profile = all_tour_with_profile.append(
