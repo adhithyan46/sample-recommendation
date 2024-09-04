@@ -2,65 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        .search-form {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-        
-        .search-form input[type="text"] {
-            margin-right: 10px;
-            padding: 5px;
-        }
-        
-        .search-form button {
-            padding: 5px 10px;
-        }
-        
-        .tour-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .tour-list li {
-            width: 80%;
-            margin-bottom: 20px;
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-        }
-        
-        .tour-list img {
-            max-width: 200px;
-            max-height: 150px;
-            margin-right: 20px;
-            border-radius: 8px;
-        }
-        
-        .tour-list h2 {
-            margin-bottom: 10px;
-        }
-        
-        .tour-list p {
-            margin: 5px 0;
-        }
-        
-        .no-tours {
-            text-align: center;
-            font-size: 18px;
-            color: #555;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <div>
@@ -72,20 +14,22 @@
         </form>
         
         {% if tours %}
-            <ul class="tour-list">
+            <div class="tour-grid">
                 {% for tour in tours %}
-                    <li>
-                        <img src="{% static tour.Image %}" alt="{{ tour.Name }}">
+                    <div>
+                        <img src="{{ tours.image.url }}" alt="{{ tour.place }}">
+                        <!-- <img src="{% static 'Sri_Ranganathaswamy_Temple_Place_of_Worship.jpg' %}" alt="Placeholder"> -->
+
 
                         <div>
-                            <h2>{{ tour.place }}</h2>
+                            <!-- <h2>{{ tour.place }}</h2> -->
                             <p><strong>City:</strong> {{ tour.city }}</p>
                             <p><strong>Type:</strong> ${{ tour.type }}</p>
                             <p><strong>Rating:</strong> {{ tour.rating }}</p>
                         </div>
-                    </li>
+                    </div>
                 {% endfor %}
-            </ul>
+                </div>
         {% else %}
             <p class="no-tours">No Locations Available</p>
         {% endif %}

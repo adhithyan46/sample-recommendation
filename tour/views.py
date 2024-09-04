@@ -6,7 +6,7 @@ import os
 from django.conf import settings
 
 # Path to the CSV file
-csv_path = os.path.join(settings.BASE_DIR, 'tour','static', 'data', 'place_4.csv')
+csv_path = os.path.join(settings.BASE_DIR, 'tour', 'data', 'place_data.csv')
 
 def tour_list(request):
     tours = Tour.objects.all()

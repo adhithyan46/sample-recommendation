@@ -1,50 +1,40 @@
+
 .search-form {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
+    margin-top: 20px;
 }
 
 .search-form input[type="text"] {
-    margin: auto;
+    margin-right: 10px;
     padding: 5px;
-    align-items: center;
 }
 
 .search-form button {
     padding: 5px 10px;
-    margin: auto;
 }
 
-.tour-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.tour-grid {
+    display: grid;
+    grid-template-columns: repeat(3 ,1fr);
+    gap: 30px;
+    margin: 50px;
+    
+
 }
 
-.tour-list li {
-    width: 80%;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.tour-list h2 {
-    margin-bottom: 10px;
-}
-
-.tour-list p {
-    margin: 5px 0;
-}
-
-.no-tours {
+.tour-card {
+    border: 1px solid #ccc;
+    padding: 20px;
     text-align: center;
-    font-size: 18px;
-    color: #555;
-    margin-top: 20px;
+    
+}
+
+.tour-card img {
+    max-width: 100%;
+}
+.no-tours {
+    margin:50px;
+    text-align: center;
 }

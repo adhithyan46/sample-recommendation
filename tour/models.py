@@ -7,12 +7,12 @@ class Tour(models.Model):
     city = models.CharField(max_length=100)
     place = models.CharField(max_length=100)
     rating = models.FloatField()
-    type = models.TextField() 
-    # image_url = models.URLField()  
-    image = models.ImageField(upload_to='tours/',default='')
+    type = models.CharField(max_length=100) 
+    # image = models.URLField()  
+    image = models.ImageField(upload_to='tours/')
 
     def __str__(self):
-        return self.name
+        return self.place
 
 
 class UserProfile(models.Model):
